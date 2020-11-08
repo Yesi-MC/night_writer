@@ -1,5 +1,4 @@
-require 'minitest/autorun'
-require 'minitest/pride'
+require './test/test_helper'
 require './lib/braille'
 require './lib/alphabet'
 
@@ -17,6 +16,15 @@ class BrailleTest < Minitest::Test
 
     expected = "0....."
 
-    assert_equal expected, braile.get_braille("a")
+    assert_equal expected, braille.get_braille("a")
+ end
+
+ def test_it_can_format_letter
+    braille = Braille.new
+    alphabet = Alphabet.new
+
+    expected = "0.\n ..\n .."
+
+    assert_equal expected, braille.format_letter("a")
  end
 end
