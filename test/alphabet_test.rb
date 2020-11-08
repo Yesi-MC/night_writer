@@ -1,7 +1,7 @@
 require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/alphabet'
-require './lib/braile'
+require './lib/braille'
 
 class AlphabetTest < Minitest::Test
  def test_it_exists
@@ -10,7 +10,7 @@ class AlphabetTest < Minitest::Test
    assert_instance_of Alphabet, alphabet
  end
 
- def test_it_knows_braile
+ def test_it_knows_braille
    alphabet = Alphabet.new
 
    expected = {
