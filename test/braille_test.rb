@@ -23,8 +23,18 @@ class BrailleTest < Minitest::Test
     braille = Braille.new
     alphabet = Alphabet.new
 
-    expected = "0.\n ..\n .."
+    expected = "0.\n..\n.."
 
     assert_equal expected, braille.format_letter("a")
+ end
+
+ def test_it_can_format_words
+   braille = Braille.new
+   alphabet = Alphabet.new
+
+   expected =
+    "0.0.0.0.0....00.0.0.00\n 00.00.0..0..00.0000..0\n ....0.0.0....00.0.0..."
+
+   assert_equal expected, braille.format_words("hello world")
  end
 end
