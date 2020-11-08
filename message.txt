@@ -1,0 +1,1 @@
+256 is the count of characters in your message.txt file.
