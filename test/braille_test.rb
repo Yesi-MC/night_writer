@@ -37,4 +37,26 @@ class BrailleTest < Minitest::Test
 
    assert_equal expected, braille.format_words("hello world")
  end
+
+ def test_it_knows_special_characters
+   braille = Braille.new
+   alphabet = Alphabet.new
+
+   expected =
+   ".00.0.0.0.0....00.0.0.00..\n.000.00.0..0..00.0000..000\n00....0.0.0....00.0.0...0.\n"
+
+   assert_equal expected, braille.format_words("#hello world!")
+ end
+
+ def test_it_cant_be_longer_than_40_characters
+   braille = Braille.new
+   alphabet = Alphabet.new
+
+   expected =
+   ".00.0.0.0.0....00.0.0.00..\n.000.00.0..0..00.0000..000\n00....0.0.0....00.0.0...0.\n"
+
+   assert_equal expected, braille.format_words("#hello world!")
+ end
+
+
 end
