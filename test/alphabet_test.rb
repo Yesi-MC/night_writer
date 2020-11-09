@@ -39,7 +39,8 @@ class AlphabetTest < Minitest::Test
          			"x" => "00..00",
          			"y" => "00.000",
          			"z" => "0..000",
-              " " => "......"
+              " " => "......",
+              "\n" => ""
               }
 
    assert_equal expected, alphabet.letters
