@@ -31,4 +31,16 @@ class Braille
     end
     "#{row1.join}" << "\n" << "#{row2.join}" << "\n" << "#{row3.join}" << "\n"
   end
+
+  def format_messages(message)
+    empty = []
+    if message.length >= 40
+      message.chars.each_slice(39) do |section|
+        empty << format_words(section.join)
+      end
+    else
+      empty << format_words(message)
+    end
+    empty.join
+  end
 end

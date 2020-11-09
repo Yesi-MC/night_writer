@@ -52,10 +52,11 @@ class BrailleTest < Minitest::Test
    braille = Braille.new
    alphabet = Alphabet.new
 
-   expected =
-   ".00.0.0.0.0....00.0.0.00..\n.000.00.0..0..00.0000..000\n00....0.0.0....00.0.0...0.\n"
+   expected = ".00...000.00...0..000.0.0...00.0.0.00.0.0..0.....00..0.0..0.0.000000..0..0.0.0\n00.0...0.0.0..00.........0....0.0.00.....00.0...00..0.00..00..0.0..0..0.0.0000\n.0......0.0.0.0...0...0.....0...0.0...0...0.......000.0.......0.0.00..0...0.0.\n0.0...0.0000.0000.00.0.0..\n0..0........0..0.0.0000.00\n0.................0.0.0.0.\n"
 
-   assert_equal expected, braille.format_words("#hello world!")
+   actual = "we don't make mistakes, just happy little accidents!"
+
+   assert_equal expected, braille.format_messages(actual)
  end
 
 
