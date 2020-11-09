@@ -19,9 +19,15 @@ class Braille
   end
 
   def format_words(words)
-    words.chars.map do |letter|
-      format_letter(letter)
-      # require "pry"; binding.pry
+    row1 = []
+    row2 = []
+    row3 = []
+    words.chars.each do |letter|
+      require "pry"; binding.pry
+      row1 << get_braille(letter)[0..1]
+      row2 << get_braille(letter)[2..3]
+      row3 << get_braille(letter)[4..5]
     end
+    "#{row1.join}" << "\n" << "#{row2.join}" << "\n" << "#{row3.join}"
   end
 end
