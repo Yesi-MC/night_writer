@@ -1,7 +1,6 @@
-require 'minitest/autorun'
-require 'minitest/pride'
+require './test/test_helper'
 require './lib/alphabet'
-require './lib/braile'
+require './lib/braille'
 
 class AlphabetTest < Minitest::Test
  def test_it_exists
@@ -10,7 +9,7 @@ class AlphabetTest < Minitest::Test
    assert_instance_of Alphabet, alphabet
  end
 
- def test_it_knows_braile
+ def test_it_knows_braille
    alphabet = Alphabet.new
 
    expected = {
@@ -35,11 +34,13 @@ class AlphabetTest < Minitest::Test
          			"s" => ".00.0.",
          			"t" => ".0000.",
          			"u" => "0...00",
-         			"v "=> "0.0.00",
+         			"v" => "0.0.00",
          			"w" => ".000.0",
          			"x" => "00..00",
          			"y" => "00.000",
-         			"z" => "0..000"
+         			"z" => "0..000",
+              " " => "......",
+              "\n" => ""
               }
 
    assert_equal expected, alphabet.letters

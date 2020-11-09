@@ -1,15 +1,23 @@
-handle_name = File.open(ARGV[0], "r")
+require './lib/braille'
+require './lib/alphabet'
+require './lib/translate'
 
-incoming_text = handle_name.read
+message = File.open(ARGV[0], "r")
 
-handle_name.close
+incoming_text = message.read
 
-capital_text = incoming_text.upcase
+message.close
+
+translate = Translate.new
+
+braille_text = translate.translate_to_braille(incoming_text)
 
 writer_file = File.open(ARGV[1], "w")
 
-writer_file.write(capital_text)
+writer_file.write(braille_text)
 writer_file.close
 
+
+puts "Created #{ARGV[0]} containing a lot of characters"
 
 # runner class
