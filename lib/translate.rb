@@ -7,6 +7,6 @@ class Translate
   end
 
   def translate_to_braille(message)
-    @braille.format_words(message)
+    @braille.format_messages(message)
   end
 end
