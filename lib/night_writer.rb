@@ -18,6 +18,6 @@ writer_file.write(braille_text)
 writer_file.close
 
 
-puts "Created #{ARGV[0]} containing a lot of characters"
+puts "Created #{ARGV[0]} containing #{incoming_text.size} characters"
 
 # runner class
