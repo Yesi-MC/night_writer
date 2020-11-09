@@ -15,7 +15,7 @@ class TranslateTest < Minitest::Test
     translate = Translate.new
     message = "bob ross"
 
-    expected = "0.0.0...0.0..0.0\n0..00...00.00.0.\n..0.....0.0.0.0."
+    expected = "0.0.0...0.0..0.0\n0..00...00.00.0.\n..0.....0.0.0.0.\n"
 
     assert_equal expected, translate.translate_to_braille(message)
   end
