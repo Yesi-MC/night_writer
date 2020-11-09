@@ -34,11 +34,12 @@ class AlphabetTest < Minitest::Test
          			"s" => ".00.0.",
          			"t" => ".0000.",
          			"u" => "0...00",
-         			"v "=> "0.0.00",
+         			"v" => "0.0.00",
          			"w" => ".000.0",
          			"x" => "00..00",
          			"y" => "00.000",
-         			"z" => "0..000"
+         			"z" => "0..000",
+              " " => "......"
               }
 
    assert_equal expected, alphabet.letters
