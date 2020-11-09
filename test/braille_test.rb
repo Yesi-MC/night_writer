@@ -33,7 +33,7 @@ class BrailleTest < Minitest::Test
    alphabet = Alphabet.new
 
    expected =
-    "0.0.0.0.0....00.0.0.00\n00.00.0..0..00.0000..0\n....0.0.0....00.0.0..."
+    "0.0.0.0.0....00.0.0.00\n00.00.0..0..00.0000..0\n....0.0.0....00.0.0...\n"
 
    assert_equal expected, braille.format_words("hello world")
  end
