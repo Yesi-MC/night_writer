@@ -1,7 +1,6 @@
 require './lib/braille'
 require './lib/unbraille'
 
-
 class Translate
 
   def initialize
@@ -14,6 +13,6 @@ class Translate
   end
 
   def translate_to_english(message)
-    @unbraille.return_english(message)
+    @unbraille.braille_to_english(message)
   end
 end
