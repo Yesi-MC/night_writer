@@ -33,19 +33,20 @@ class Unbraille
   end
 
   def braille_to_english(braille)
-    array = []
+    disconnected_lines = []
     lines = []
-    array << braille
+    disconnected_lines << braille
     split_line = braille.split("\n")
     split_line.each_with_index do |line, index|
       lines << line
     end
-    xyz = lines.each_slice(3).to_a.transpose
-    tuv = []
-    xyz.each do |letter|
-      tuv << letter.join.delete(" ") << "\n"
+    array_of_lines = lines.each_slice(3).to_a.transpose
+    connected_lines = []
+    array_of_lines.each do |letter|
+      connected_lines << letter.join.delete(" ") << "\n"
     end
-    return_english(tuv.join)
+    return_english(connected_lines.join)
+    require "pry"; binding.pry
   end
 
 
