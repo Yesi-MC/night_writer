@@ -30,16 +30,23 @@ class Unbraille
       sentence << get_english(char.join)
     end
     sentence.join
-    # require "pry"; binding.pry
   end
 
-  # def join_braille(braille)
-  #
-  #   count_of_letters(braille).times do
-  #     letter = braille[0..2].join
-  #   sentence << get_english(letter)
-  #   end
-  #   sentence
-  # end
+  def braille_to_english(braille)
+    array = []
+    lines = []
+    array << braille
+    split_line = braille.split("\n")
+    split_line.each_with_index do |line, index|
+      lines << line
+    end
+    xyz = lines.each_slice(3).to_a.transpose
+    tuv = []
+    xyz.each do |letter|
+      tuv << letter.join.delete(" ") << "\n"
+    end
+    return_english(tuv.join)
+  end
+
 
 end
