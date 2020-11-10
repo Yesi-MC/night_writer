@@ -24,12 +24,25 @@ class Unbraille
         braille_in_order << line.slice!(0..1)
       end
     end
-    array = braille_in_order.join.scan(/(..)(..)(..)/)
+    braille_conversion(braille_in_order)
+  end
+
+  def braille_conversion(braille)
+    letter_breakdown = braille.join.scan(/(..)(..)(..)/)
     sentence = []
-    array.each do |char|
-      sentence << get_english(char.join)
+    letter_breakdown.each do |letter|
+      sentence << get_english(letter.join)
     end
     sentence.join
+  end
+
+  def give_english(braille)
+    transposed_lines = braille.each_slice(3).to_a.transpose
+    connected_lines = []
+    transposed_lines.each do |letter|
+      connected_lines << letter.join.delete(" ") << "\n"
+    end
+    return_english(connected_lines.join)
   end
 
   def braille_to_english(braille)
@@ -40,14 +53,6 @@ class Unbraille
     split_line.each_with_index do |line, index|
       lines << line
     end
-    array_of_lines = lines.each_slice(3).to_a.transpose
-    connected_lines = []
-    array_of_lines.each do |letter|
-      connected_lines << letter.join.delete(" ") << "\n"
-    end
-    return_english(connected_lines.join)
-    require "pry"; binding.pry
+    give_english(lines)
   end
-
-
 end
