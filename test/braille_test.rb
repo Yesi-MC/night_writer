@@ -53,6 +53,4 @@ class BrailleTest < Minitest::Test
 
    assert_equal expected, braille.format_messages(actual)
  end
-
-
 end

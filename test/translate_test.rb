@@ -31,6 +31,4 @@ class TranslateTest < Minitest::Test
     assert_equal expected, translate.translate_to_english(message)
 
   end
-
-
 end
